@@ -2,6 +2,22 @@ body {
   background-color: #ccc;
 }
 
+.shopping-card{
+  display: flex;
+  gap: 30px;
+
+}
+
+.product {
+  background-color: aqua;
+  padding: 20px;
+}
+
+.card {
+  background-color: aqua;
+  padding: 20px;
+}
+
 .product-container {
   padding: 20px;
   background-color: #fff;
