@@ -1,5 +1,20 @@
+import { useState } from "react";
 
-function ProductCard({ product }) {
+function ProductCard({ product, onAdd }) {
+    const [quantity, setQuantity] = useState(1)
+
+    function handleIncrement() {
+        setQuantity(prev=>prev+1)
+    }
+
+    function handleDecrement() {
+        setQuantity(prev=>prev-1)
+    }
+
+    function handleAdd() {
+        onAdd({...product, quantity})
+    }
+
     return (
         <div className="product-container">
 
@@ -10,14 +25,14 @@ function ProductCard({ product }) {
                     <p>Price: {product.price}$</p>
 
                     <div className="quantity">
-                        <button>+</button>
-                        <span>Quantity</span>
-                        <button>-</button>
+                        <button onClick={handleIncrement}>+</button>
+                        <span>{quantity}</span>
+                        <button onClick={handleDecrement}>-</button>
                     </div>
                 </div>
             </div>
 
-            <button>Add to card</button>
+            <button onClick={handleAdd}>Add to card</button>
         </div>
     );
 }
